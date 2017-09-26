@@ -7,10 +7,10 @@ export const getBooks = () => {
   }
 }
 
-export const deleteBooks = (id) => {
+export const deleteBooks = (_id) => {
   return {
    type: "DELETE_BOOK", 
-   payload: id 
+   payload: _id 
   }
 }
 
@@ -19,4 +19,11 @@ export const updateBooks = (book) => {
     type: "UPDATE_BOOK",
     payload: book
   }
-} 
+}
+
+export const postBooks = (book) =>{
+  return{
+    type: "POST_BOOKS",
+    payload: book
+  }
+}

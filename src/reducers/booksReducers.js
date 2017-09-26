@@ -3,12 +3,12 @@
 //DEFINE REDUCER
 export const booksReducers = (state={books:[
     {
-      id: 1,
+      _id: 1,
       title: "First book title",
       description: "First book description",
       price: 33.33
     },{
-      id: 2,
+      _id: 2,
       title: "Second book title",
       description: "Second book description",
       price: 50
@@ -27,7 +27,7 @@ export const booksReducers = (state={books:[
     case "DELETE_BOOK":
       const currentBooksToDelete = [...state.books]
       const indexToDelete = currentBooksToDelete.findIndex((book)=>{
-        return book.id === action.payload.id
+        return book._id === action.payload._id
       });
       return {books:[...currentBooksToDelete.slice(0, indexToDelete), ...currentBooksToDelete.slice(indexToDelete + 1)]}
       break;
@@ -35,7 +35,7 @@ export const booksReducers = (state={books:[
     case "UPDATE_BOOK":
       const currentBooksToUpdate = [...state.books]
       const indexToUpdate = currentBooksToUpdate.findIndex((book)=>{
-        return book.id === action.payload.id
+        return book._id === action.payload._id
       });
       const newBooksToUpdate = {...currentBooksToUpdate[indexToUpdate], title: action.payload.title, description: action.payload.description}
       return {books:[...currentBooksToUpdate.slice(0, indexToUpdate), newBooksToUpdate,  ...currentBooksToUpdate.slice(indexToUpdate + 1)]}
